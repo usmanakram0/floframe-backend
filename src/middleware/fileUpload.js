@@ -18,14 +18,11 @@
 
 import multer from "multer";
 
-// ✅ Vercel-compatible: stores file in RAM instead of disk
 const storage = multer.memoryStorage();
 
 const upload = multer({
   storage,
-  limits: {
-    fileSize: 200 * 1024 * 1024, // 200MB
-  },
+  limits: { fileSize: 200 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const allowed = ["video/mp4", "video/quicktime"];
     if (!allowed.includes(file.mimetype)) {

@@ -4,9 +4,8 @@ import path from "path";
 import fs from "fs";
 
 export const extractFrameController = async (req, res, next) => {
+  console.log("final deployments extract controller");
   const videoFile = req.file;
-
-  console.log("final deployments");
 
   if (!videoFile) {
     return next(new Error("No video file uploaded"));

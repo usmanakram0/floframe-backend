@@ -21,6 +21,8 @@ import fs from "fs";
 
 const uploadDir = "/tmp/uploads"; // ✅ ONLY writable directory on Vercel
 
+console.log("final deployments file upload");
+
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }

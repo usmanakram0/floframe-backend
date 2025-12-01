@@ -13,8 +13,11 @@ export const extractFrameController = async (req, res, next) => {
   }
 
   try {
-    const framesDir = "frames";
-    if (!fs.existsSync(framesDir)) fs.mkdirSync(framesDir);
+    const framesDir = "/tmp/frames"; // ✅ Vercel safe
+
+    if (!fs.existsSync(framesDir)) {
+      fs.mkdirSync(framesDir, { recursive: true });
+    }
 
     const framePath = path.join(framesDir, `${Date.now()}-last.png`);
 
